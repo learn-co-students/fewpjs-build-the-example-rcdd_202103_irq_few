@@ -3,7 +3,9 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
-
+document.body.addEventListener("click", (e)=>{
+  if(e.target.className == "like-glyph") mimicServerCall();
+});
 
 
 
@@ -16,9 +18,9 @@ function mimicServerCall(url="http://mimicServer.example.com", config={}) {
     setTimeout(function() {
       let isRandomFailure = Math.random() < .2
       if (isRandomFailure) {
-        reject("Random server error. Try again.");
+        alert("Random server error. Try again.");
       } else {
-        resolve("Pretend remote server notified of action!");
+        alert("Pretend remote server notified of action!");
       }
     }, 300);
   });
