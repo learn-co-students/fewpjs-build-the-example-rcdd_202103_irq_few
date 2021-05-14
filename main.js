@@ -5,6 +5,36 @@ const FULL_HEART = '♥'
 // Your JavaScript code goes here!
 
 
+const errorModal = document.getElementById("modal");
+ errorModal.classList.add("hidden");
+const articleHearts = document.querySelectorAll(".like-glyph");
+
+function likeCallback(e) {
+ const heart = e.target;
+  mimicServerCall("bogusUrl")
+    .then(function(serverMessage){
+      if (heart.innerText===EMPTY_HEART)
+      {
+      heart.innerText=FULL_HEART;
+      heart.style.color = "red";
+        
+      }
+      else {heart.innerText=EMPTY_HEART;
+        
+      }
+    })
+    .catch(function(error) {
+      const modal = document.getElementById("modal");
+      modal.className = "";
+      modal.innerText = error;
+      setTimeout(() =>  modal.className = "hidden", 3000);
+    });
+}
+
+for (const glyph of articleHearts) {
+  glyph.addEventListener("click", likeCallback);
+}
+
 
 
 //------------------------------------------------------------------------------
