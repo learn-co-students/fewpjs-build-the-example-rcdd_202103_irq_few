@@ -17,7 +17,6 @@ const articleHearts = document.querySelectorAll(".like-glyph");
 function likeCallback(e) {
   const heart = e.target;
   mimicServerCall("bogusUrl")
-  mimicServerCall("bogusUrl", {forceFailure: true})
     .then(function(serverMessage){
        heart.innerText = glyphStates[heart.innerText];
        heart.style.color = colorStates[heart.style.color];
