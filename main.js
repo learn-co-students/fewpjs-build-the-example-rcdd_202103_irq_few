@@ -23,7 +23,7 @@ function likeCallback(e) {
     })
     .catch(function(error) {
       const modal = document.getElementById("modal");
-      modal.className = "";
+      modal.className = "hidden";
       modal.innerText = error;
       setTimeout(() =>  modal.className = "hidden", 3000);
     });
